@@ -327,7 +327,7 @@ body {
 
     .product-image {
       width: 100%;
-      height: 180px;
+      height: 380px;
       object-fit: cover;
       position: relative;
     }
@@ -435,17 +435,14 @@ body {
 }
 
 .clear-cart-btn {
-    background: #dc3545;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    font-size: 12px;
+    background: none;
+    color: black;
+    border: 2px solid black;
+    padding: 15px 12px;
+    width: 100%;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-}
-
-.clear-cart-btn:hover {
-    background: #c82333;
 }
 
 .cart-item {
