@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEJAMAS - Photography Marketplace</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./index.js"></script>
+  <script src="https://kit.fontawesome.com/e17253bf82.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+  </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">BEJAMAS_</div>
+        <div class="cart-icon" onclick="toggleCart()">
+          <img width="24" height="24" src="https://img.icons8.com/forma-thin/24/shopping-cart.png"
+            alt="shopping-cart" />
+
+          <span class="cart-count" id="cartCount">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-container">
+      <!-- Featured Product -->
+      <div class="featured-product">
+        <div class="featured-product__head">
+          <h2>Samurai King Resting</h2>
+          <button class="featured-add-to-cart"
+            onclick="addToCart('samurai-king', 'Samurai King Resting', 100.00, 'Premium')">ADD TO CART</button>
+        </div>
+
+        <div class="featured-image">
+          <img src="./Assets/samuraiking.jpg" alt="">
+          <div class="photo-day-label">
+            <h2>Photo of the day</h2>
+          </div>
+        </div>
+
+        <div class="featured-content">
+        <!-- ALIGNED HEADERS -->
+        <div class="featured-header">
+          <div>
+            <h1 class="featured-title">About the Samurai King Resting</h1>
+            <h3 class="featured-category__label">Pets</h3>
+          </div>
+          <div class="featured-header-right">
+            <h2 class="people-also-buy-title">People also buy</h2>
+          </div>
+        </div>
+        
+       
+        <div class="featured-body">
+          <p class="featured-description">
+            So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter
+            likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts
+            for a type specimen book. So how did the classical Latin become so incoherent? According to McClintock, a
+            15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide<br><br>placeholder
+            text to mockup various fonts for a type specimen book. So how did the classical Latin become so incoherent?
+            According to McClintock. Text to mockup various fonts for a type specimen book. So how did the classical Latin become so incoherent?
+            According to McClintock. Classical Latin become so incoherent? According to McClintock.
+          </p>
+          
+          <div class="people-also-buy-section">
+            <div class="featured-extra">
+              <div class="featured-extra_images">
+                <img src="./Assets/1.jpg" alt="product 1">
+                <img src="./Assets/4.jpg" alt="product 2">
+                <img src="./Assets/6.jpg" alt="product 3">
+              </div>
+              <div class="featured-extra_details">
+                <h3>Details</h3>
+                <p>Size: 1024 x 1024 pixel</p>
+                <p>Size: 15 mb</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- Products Section -->
+       <div class="products-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Photography <span style="color: #adacac;">/ Premium Photos</span></h2>
+        </div>
+
+        <div class="section-filer">
+          <span style="color: #adacac;">
+            <img width="15" height="15" src="https://img.icons8.com/pastel-glyph/64/sorting-arrows--v1.png" alt="sorting-arrows--v1"/>
+            Sort By 
+          </span>
+          <select class="sort-dropdown" onchange="sortProducts(this.value)">
+            <option value="price-asc">Price</option>
+            <option value="name">Name</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SIDE-BY-SIDE LAYOUT -->
+      <div class="products-layout">
+        <!-- LEFT SIDEBAR: Category and Price Filters -->
+        <div class="category-filters">
+          <!-- Category Filters -->
+          <div class="filter-section">
+            <div class="filter-title">Category</div>
+            <div class="filter-options">
+              <div class="filter-option">
+                <input type="checkbox" id="people" onchange="applyFilters()">
+                <label for="people">People</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="premium" onchange="applyFilters()">
+                <label for="premium">Premium</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="pets" onchange="applyFilters()">
+                <label for="pets">Pets</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="food" onchange="applyFilters()">
+                <label for="food">Food</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="landmarks" onchange="applyFilters()">
+                <label for="landmarks">Landmarks</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="cities" onchange="applyFilters()">
+                <label for="cities">Cities</label>
+              </div>
+              <div class="filter-option">
+                <input type="checkbox" id="nature" onchange="applyFilters()">
+                <label for="nature">Nature</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="filter-section">
+            <div class="filter-title">Price range</div>
+            <div class="price-options">
+              <div class="price-option">
+                <input type="checkbox" id="price-lower-20" onchange="applyPriceFilters()">
+                <label for="price-lower-20">Lower than $20</label>
+              </div>
+              <div class="price-option">
+                <input type="checkbox" id="price-20-100" onchange="applyPriceFilters()">
+                <label for="price-20-100">$20 - $100</label>
+              </div>
+              <div class="price-option">
+                <input type="checkbox" id="price-100-200" onchange="applyPriceFilters()">
+                <label for="price-100-200">$100 - $200</label>
+              </div>
+              <div class="price-option">
+                <input type="checkbox" id="price-more-200" onchange="applyPriceFilters()">
+                <label for="price-more-200">More than $200</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT CONTENT: Products Grid -->
+        <div class="products-content">
+          <div class="products-grid" id="productsGrid">
+            <!-- Products will be dynamically loaded here -->
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <button onclick="changePage(-1)">‹</button>
+            <button class="active">1</button>
+            <button onclick="changePage(1)">2</button>
+            <button onclick="changePage(1)">3</button>
+            <button onclick="changePage(1)">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h2>Shopping Cart</h2>
+          <div class="cart-actions">
+            <button class="clear-cart-btn" onclick="clearCart()">CLEAR</button>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+          </div>
+        </div>
+        <div id="cartItems">
+          <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div id="cartTotal" style="margin-top: 20px; font-weight: bold;"></div>
+      </div>
+    </div>
+
+    <script>
+
+    </script>
+  </body>
+
+</html>
