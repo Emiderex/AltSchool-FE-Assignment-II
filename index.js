@@ -278,24 +278,33 @@ function clearCart() {
 }
 
 function openMobileFilters() {
+  console.log('Filter button clicked'); // Add this to test if function is called
   const modal = document.getElementById('mobileFilterModal');
-  const container = document.getElementById('mobile-filters-container');
-  const desktopFilters = document.querySelector('.category-filters');
-  
-  // Move existing filters to mobile modal
-  container.appendChild(desktopFilters.cloneNode(true));
-  modal.style.display = 'block';
+  if (modal) {
+    modal.style.display = 'block';
+    console.log('Modal should be visible now'); // Test line
+  } else {
+    console.log('Modal not found!'); // Debug line
+  }
 }
 
 function closeMobileFilters() {
   const modal = document.getElementById('mobileFilterModal');
-  modal.style.display = 'none';
+  if (modal) {
+    modal.style.display = 'none';
+  }
 }
 
 function clearAllFilters() {
   const allInputs = document.querySelectorAll('input[type="checkbox"]');
-  allInputs.forEach(input => input.checked = false);
+  allInputs.forEach(input => {
+    input.checked = false;
+  });
+  
   filteredProducts = [...products];
   currentPage = 1;
   renderProducts();
+  
+  // Close modal after clearing
+  closeMobileFilters();
 }

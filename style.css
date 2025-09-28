@@ -656,4 +656,14 @@ body {
   .section-filer span, .sort-dropdown {
     display: none;
   }
+
+  /* Hide desktop filters on mobile */
+  .category-filters {
+    display: none !important;
+  }
+  
+  /* Show mobile filter button */
+  .mobile-filter-toggle {
+    display: flex;
+  }
 }

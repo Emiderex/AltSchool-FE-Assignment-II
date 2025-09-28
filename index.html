@@ -28,22 +28,6 @@
       </div>
     </header>
 
-    <!-- Add this button next to your existing sort dropdown -->
-    <button class="mobile-filter-toggle" onclick="openMobileFilters()">
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <line x1="4" y1="6" x2="20" y2="6"></line>
-        <line x1="4" y1="12" x2="20" y2="12"></line>
-        <line x1="4" y1="18" x2="16" y2="18"></line>
-      </svg>
-      Filter
-    </button>
     <div class="main-container">
       <!-- Featured Product -->
       <div class="featured-product">
@@ -107,6 +91,73 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Mobile Filter Modal -->
+      <div class="mobile-filter-modal" id="mobileFilterModal">
+        <div class="mobile-filter-content">
+          <div class="mobile-filter-header">
+            <h2>Filter</h2>
+            <button
+              onclick="closeMobileFilters()"
+              style="
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+              "
+            >
+              ×
+            </button>
+          </div>
+
+          <!-- Copy your exact existing filter sections here -->
+          <div class="filter-section">
+            <div class="filter-title">Category</div>
+            <div class="filter-options">
+              <!-- Copy all your category checkboxes here with same IDs -->
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <div class="filter-title">Price range</div>
+            <div class="price-options">
+              <!-- Copy all your price checkboxes here with same IDs -->
+            </div>
+          </div>
+
+          <div style="height: 80px"></div>
+        </div>
+
+        <div class="mobile-filter-actions">
+          <button
+            onclick="clearAllFilters()"
+            style="
+              flex: 1;
+              background: white;
+              border: 2px solid #333;
+              padding: 12px;
+              font-weight: 600;
+              cursor: pointer;
+            "
+          >
+            CLEAR
+          </button>
+          <button
+            onclick="closeMobileFilters()"
+            style="
+              flex: 1;
+              background: #333;
+              color: white;
+              border: none;
+              padding: 12px;
+              font-weight: 600;
+              cursor: pointer;
+            "
+          >
+            SAVE
+          </button>
         </div>
       </div>
 
