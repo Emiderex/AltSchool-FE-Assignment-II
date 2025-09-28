@@ -41,6 +41,13 @@ const products = [
     category: "Landmarks",
     image: "./Assets/3.jpg",
   },
+  {
+    id: "samurai-king",
+    title: "Samurai King Resting",
+    price: 100.0,
+    category: "Premium",
+    image: "./Assets/samuraiking.jpg",
+  },
 ];
 
 let cart = [];
@@ -139,17 +146,17 @@ function updateCartDisplay() {
     .map(
       (item) => `
   <div class="cart-item">
-    <img src="${item.image}" alt="${
-        item.title
-      }" class="cart-item-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 60 60\\'%3E%3Crect width=\\'60\\' height=\\'60\\' fill=\\'%23ddd\\'/%3E%3Ctext x=\\'30\\' y=\\'35\\' text-anchor=\\'middle\\' font-family=\\'Arial\\' font-size=\\'8\\' fill=\\'%23666\\'%3E${
-        item.title
-      }%3C/text%3E%3C/svg%3E'">
     <div class="cart-item-info">
       <div class="cart-item-title">${item.title}</div>
       <div class="cart-item-price">$${item.price.toFixed(2)} × ${
         item.quantity
       }</div>
     </div>
+     <img src="${item.image}" alt="${
+        item.title
+      }" class="cart-item-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 60 60\\'%3E%3Crect width=\\'60\\' height=\\'60\\' fill=\\'%23ddd\\'/%3E%3Ctext x=\\'30\\' y=\\'35\\' text-anchor=\\'middle\\' font-family=\\'Arial\\' font-size=\\'8\\' fill=\\'%23666\\'%3E${
+        item.title
+      }%3C/text%3E%3C/svg%3E'">
   </div>
 `
     )
@@ -183,4 +190,89 @@ function applyFilters() {
 
   currentPage = 1;
   renderProducts();
+}
+
+// Apply price filters
+function applyPriceFilters() {
+  const priceRanges = [];
+
+  if (document.getElementById('price-lower-20').checked) {
+    priceRanges.push([0, 20]);
+  }
+  if (document.getElementById('price-20-100').checked) {
+    priceRanges.push([20, 100]);
+  }
+  if (document.getElementById('price-100-200').checked) {
+    priceRanges.push([100, 200]);
+  }
+  if (document.getElementById('price-more-200').checked) {
+    priceRanges.push([200, Infinity]);
+  }
+
+  if (priceRanges.length === 0) {
+    applyFilters();
+    return;
+  }
+
+  const checkedCategories = [];
+  const checkboxes = document.querySelectorAll('.filter-option input[type="checkbox"]');
+
+  checkboxes.forEach(checkbox => {
+    if (checkbox.checked) {
+      const label = checkbox.nextElementSibling.textContent;
+      checkedCategories.push(label);
+    }
+  });
+
+  let filtered = [...products];
+
+  if (checkedCategories.length > 0) {
+    filtered = filtered.filter(product =>
+      checkedCategories.includes(product.category)
+    );
+  }
+
+  filtered = filtered.filter(product => {
+    return priceRanges.some(range =>
+      product.price >= range[0] && product.price < range[1]
+    );
+  });
+
+  filteredProducts = filtered;
+  currentPage = 1;
+  renderProducts();
+}
+
+// Sort products
+function sortProducts(sortType) {
+  switch (sortType) {
+    case 'price-asc':
+      filteredProducts.sort((a, b) => a.price - b.price);
+      break;
+    case 'price-desc':
+      filteredProducts.sort((a, b) => b.price - a.price);
+      break;
+    case 'name':
+      filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+  }
+  renderProducts();
+}
+
+// Change page
+function changePage(direction) {
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  const newPage = currentPage + direction;
+
+  if (newPage >= 1 && newPage <= totalPages) {
+    currentPage = newPage;
+    renderProducts();
+  }
+}
+
+// Clear entire cart
+function clearCart() {
+  cart = [];
+  updateCartCount();
+  updateCartDisplay();
 }
