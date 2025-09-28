@@ -276,3 +276,26 @@ function clearCart() {
   updateCartCount();
   updateCartDisplay();
 }
+
+function openMobileFilters() {
+  const modal = document.getElementById('mobileFilterModal');
+  const container = document.getElementById('mobile-filters-container');
+  const desktopFilters = document.querySelector('.category-filters');
+  
+  // Move existing filters to mobile modal
+  container.appendChild(desktopFilters.cloneNode(true));
+  modal.style.display = 'block';
+}
+
+function closeMobileFilters() {
+  const modal = document.getElementById('mobileFilterModal');
+  modal.style.display = 'none';
+}
+
+function clearAllFilters() {
+  const allInputs = document.querySelectorAll('input[type="checkbox"]');
+  allInputs.forEach(input => input.checked = false);
+  filteredProducts = [...products];
+  currentPage = 1;
+  renderProducts();
+}

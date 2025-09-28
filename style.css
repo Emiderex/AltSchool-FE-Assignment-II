@@ -587,3 +587,73 @@ body {
         min-width: 0;
       }
     }
+
+
+    /* Mobile Filter Toggle Button */
+.mobile-filter-toggle {
+  display: none;
+  background-color: white;
+  border: none;
+  color: black;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Mobile Filter Modal - Half Screen */
+.mobile-filter-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.mobile-filter-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: white;
+  border-radius: 15px 15px 0 0;
+  overflow-y: auto;
+  padding: 20px;
+  padding-bottom: 100px;
+}
+
+.mobile-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-filter-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 15px;
+}
+
+@media (max-width: 600px) {
+  /* Add this line to show mobile filter button */
+  .mobile-filter-toggle {
+    display: flex;
+  }
+  .section-filer span, .sort-dropdown {
+    display: none;
+  }
+}
