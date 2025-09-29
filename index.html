@@ -95,6 +95,7 @@
       </div>
 
       <!-- Mobile Filter Modal -->
+      <!-- Mobile Filter Modal -->
       <div class="mobile-filter-modal" id="mobileFilterModal">
         <div class="mobile-filter-content">
           <div class="mobile-filter-header">
@@ -112,18 +113,108 @@
             </button>
           </div>
 
-          <!-- Copy your exact existing filter sections here -->
+          <!-- Category Filters -->
           <div class="filter-section">
             <div class="filter-title">Category</div>
             <div class="filter-options">
-              <!-- Copy all your category checkboxes here with same IDs -->
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="mobile-people"
+                  onchange="syncMobileToDesktop('people')"
+                />
+                <label for="mobile-people">People</label>
+              </div>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="mobile-premium"
+                  onchange="syncMobileToDesktop('premium')"
+                />
+                <label for="mobile-premium">Premium</label>
+              </div>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="mobile-pets"
+                  onchange="syncMobileToDesktop('pets')"
+                />
+                <label for="mobile-pets">Pets</label>
+              </div>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="mobile-food"
+                  onchange="syncMobileToDesktop('food')"
+                />
+                <label for="mobile-food">Food</label>
+              </div>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="mobile-landmarks"
+                  onchange="syncMobileToDesktop('landmarks')"
+                />
+                <label for="mobile-landmarks">Landmarks</label>
+              </div>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="mobile-cities"
+                  onchange="syncMobileToDesktop('cities')"
+                />
+                <label for="mobile-cities">Cities</label>
+              </div>
+              <div class="filter-option">
+                <input
+                  type="checkbox"
+                  id="mobile-nature"
+                  onchange="syncMobileToDesktop('nature')"
+                />
+                <label for="mobile-nature">Nature</label>
+              </div>
             </div>
           </div>
 
-          <div class="filter-section">
+          <!-- Price Range Filter -->
+          <div
+            class="filter-section"
+            style="border-top: 2px solid #dfdcdc; padding-top: 20px"
+          >
             <div class="filter-title">Price range</div>
             <div class="price-options">
-              <!-- Copy all your price checkboxes here with same IDs -->
+              <div class="price-option">
+                <input
+                  type="checkbox"
+                  id="mobile-price-lower-20"
+                  onchange="syncMobilePriceToDesktop('price-lower-20')"
+                />
+                <label for="mobile-price-lower-20">Lower than $20</label>
+              </div>
+              <div class="price-option">
+                <input
+                  type="checkbox"
+                  id="mobile-price-20-100"
+                  onchange="syncMobilePriceToDesktop('price-20-100')"
+                />
+                <label for="mobile-price-20-100">$20 - $100</label>
+              </div>
+              <div class="price-option">
+                <input
+                  type="checkbox"
+                  id="mobile-price-100-200"
+                  onchange="syncMobilePriceToDesktop('price-100-200')"
+                />
+                <label for="mobile-price-100-200">$100 - $200</label>
+              </div>
+              <div class="price-option">
+                <input
+                  type="checkbox"
+                  id="mobile-price-more-200"
+                  onchange="syncMobilePriceToDesktop('price-more-200')"
+                />
+                <label for="mobile-price-more-200">More than $200</label>
+              </div>
             </div>
           </div>
 
@@ -145,7 +236,7 @@
             CLEAR
           </button>
           <button
-            onclick="closeMobileFilters()"
+            onclick="saveMobileFilters()"
             style="
               flex: 1;
               background: #333;

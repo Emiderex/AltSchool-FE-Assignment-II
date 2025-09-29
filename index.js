@@ -278,13 +278,14 @@ function clearCart() {
 }
 
 function openMobileFilters() {
-  console.log('Filter button clicked'); // Add this to test if function is called
+  console.log('Filter button clicked');
   const modal = document.getElementById('mobileFilterModal');
   if (modal) {
     modal.style.display = 'block';
-    console.log('Modal should be visible now'); // Test line
+    syncDesktopToMobile(); // Add this line
+    console.log('Modal should be visible now');
   } else {
-    console.log('Modal not found!'); // Debug line
+    console.log('Modal not found!');
   }
 }
 
@@ -306,5 +307,49 @@ function clearAllFilters() {
   renderProducts();
   
   // Close modal after clearing
+  closeMobileFilters();
+}
+
+function syncDesktopToMobile() {
+  // Sync category filters
+  const categories = ['people', 'premium', 'pets', 'food', 'landmarks', 'cities', 'nature'];
+  categories.forEach(category => {
+    const desktop = document.getElementById(category);
+    const mobile = document.getElementById('mobile-' + category);
+    if (desktop && mobile) {
+      mobile.checked = desktop.checked;
+    }
+  });
+  
+  // Sync price filters
+  const prices = ['price-lower-20', 'price-20-100', 'price-100-200', 'price-more-200'];
+  prices.forEach(price => {
+    const desktop = document.getElementById(price);
+    const mobile = document.getElementById('mobile-' + price);
+    if (desktop && mobile) {
+      mobile.checked = mobile.checked;
+    }
+  });
+}
+
+function syncMobileToDesktop(categoryId) {
+  const mobile = document.getElementById('mobile-' + categoryId);
+  const desktop = document.getElementById(categoryId);
+  if (mobile && desktop) {
+    desktop.checked = mobile.checked;
+  }
+}
+
+function syncMobilePriceToDesktop(priceId) {
+  const mobile = document.getElementById('mobile-' + priceId);
+  const desktop = document.getElementById(priceId);
+  if (mobile && desktop) {
+    desktop.checked = mobile.checked;
+  }
+}
+
+function saveMobileFilters() {
+  applyFilters();
+  applyPriceFilters();
   closeMobileFilters();
 }
