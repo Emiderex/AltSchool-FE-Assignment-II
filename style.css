@@ -472,7 +472,7 @@ body {
     color: #666;
 }
 
-/* RESPONSIVE LAYOUT - PROPERLY FIXED */
+/* RESPONSIVE LAYOUT*/
 
 /* Large screens - maintain sidebar */
  @media (max-width: 700px) {
@@ -589,7 +589,7 @@ body {
     }
 
 
-    /* Mobile Filter Toggle Button */
+/* Mobile Filter Button */
 .mobile-filter-toggle {
   display: none;
   background-color: white;
@@ -602,7 +602,7 @@ body {
   gap: 5px;
 }
 
-/* Mobile Filter Modal - Half Screen */
+/* Mobile Filter Modal */
 .mobile-filter-modal {
   display: none;
   position: fixed;

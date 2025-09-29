@@ -270,7 +270,7 @@ function changePage(direction) {
   }
 }
 
-// Clear entire cart
+// Clear cart
 function clearCart() {
   cart = [];
   updateCartCount();
@@ -282,7 +282,7 @@ function openMobileFilters() {
   const modal = document.getElementById('mobileFilterModal');
   if (modal) {
     modal.style.display = 'block';
-    syncDesktopToMobile(); // Add this line
+    syncDesktopToMobile();
     console.log('Modal should be visible now');
   } else {
     console.log('Modal not found!');
